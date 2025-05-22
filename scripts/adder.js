@@ -29,4 +29,24 @@ const otherSpans = document.querySelectorAll("#addAt p span");
 //add an event listener to the element that will add a new list item to the end of the list
 document.querySelector("#addEnd").addEventListener("click", addToEnd);
 
-//type the function 
+//type the function to add an element to the end of the list
+function addToEnd(){
+    //create a new html list item (this element will not be added to the page yet)
+    const newListItem = document.createElement("li");
+
+    //get the text from the textarea
+    newListItem.textContent = document.querySelector("#pContent").value;
+
+    //add the list item to the end of the list
+    document.querySelector("#adder").appendChild(newListItem);
+
+    //check to see if there are a certian number of children (more than 7);
+    //and if so, make them white
+    if(document.querySelector("#adder").children.length > 7){
+        document.querySelector("#addEnd").style.color = "white";
+    }
+
+
+
+
+}
