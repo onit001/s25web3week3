@@ -25,3 +25,8 @@ console.log(spans);
 
 //another way to select children
 const otherSpans = document.querySelectorAll("#addAt p span");
+
+//add an event listener to the element that will add a new list item to the end of the list
+document.querySelector("#addEnd").addEventListener("click", addToEnd);
+
+//type the function 
