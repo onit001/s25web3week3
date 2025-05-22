@@ -60,7 +60,7 @@ function addToEnd(){
 
 //add an event listener to the element that will remove the last list item in the list
 
-document.querySelector("#removeFirst").addEventListener("click", removeLast);
+document.querySelector("#removeFirst").addEventListener("click", removeItem);
 
 //add an event listener to the element that will remove the last list item in the list
 
@@ -69,6 +69,8 @@ document.querySelector("#removeLast").addEventListener("click", removeItem);
 function removeItem (){
     //get the adder element (the ul that holds the list items)
     const adder = document.querySelector("#adder");
+        //also get all the children in a variable aswell, the use for later...
+    const listItems = adder.children;
 
     //check to see which buton was actually clicked...
     //two equals makes a comparison (ask a question)
@@ -87,8 +89,7 @@ function removeItem (){
 
 
     console.log(cRemove);
-    //also get all the children in a variable aswell, the use for later...
-    const listItems = adder.children;
+
 
     /*//check the length first to make sure there is a list item to remove
     if(listItems.length > 0){
