@@ -1,105 +1,88 @@
-const textA = document.getElementById(("pContent"));
+/* const textA = document.getElementById(("pContent"));
 
 //now that we have the element, we can find out more about it.
 
-//console.log(textA.id);
-//console.log(textA.name);
+console.log(textA.id);
+console.log(textA.name);
 
 //querySelector lets you select by any CSS Selector (anyway you style the element)
 const buttons = document.querySelector(".b");
 
-//console.log(buttons.id);
+console.log(buttons.id);
 
 //querySelector selects only the first thing that matches the selector
 //querySelectorAll selects them all
 
 const allButtons = document.querySelectorAll(".b");
 
-//console.log(allButtons[2].textContent);
-
-//using querySelector, you can be very specific about what you select
-
+console.log(allButtons[2].style);
+"
+//using querySelector, you can be very specifi about what you want to select
 const para = document.querySelector("#addAt p");
-//once you have the element, you can get info about it - including its children
-
+//once you have the element you can get the info about it - including its children
 const spans = para.children;
-//console.log(spans);
-//above works
+console.log(spans);
 
+//another way to select children
+const otherSpans = document.querySelectorAll("#addAt p span"); */
 
-//another way to do the same thing above, using querySelectorAll
-//const otherSpans = document.querySelectorAll("#addAt p span");
-//console.log(spans);
-
-//cant get above 2nd method to work :(
-
-//add an event listener to the element that will add a list item to the end of a list
-
+//add an event listenerto the element that will add a list item to the end of the list
 document.querySelector("#addEnd").addEventListener("click", addToEnd);
 
-//type the function to add an elment to the end of the list 
+//type the function to ad an element to he end of the list 
 function addToEnd(){
-    //create a hew HTML list item (this element willl not be addet yet to the page)
-    const newListItem = document.createElement("li");
-    //get the content of the text area, and add it as text to the new list item
+    //creat a new HTML list item(this element will no yet be added to the pag)
+	const newListItem = document.createElement("li");
+    //get the text from the textarea
+    const textA = document.getElementById("pContent");
+    //put the text from the textarea into the new list item
     newListItem.textContent = document.querySelector("#pContent").value;
 
-    //add the new list item to the UL, with the id "adder"
-    document.querySelector("#adder").appendChild(newListItem)
-
-    //check to see if there are a certain number of children (more than 7)
-    //and if there are, make them white
-
-    if(adder.children.length > 7){
-        //add a class to the element to make it white
-        newListItem.classList.add("bright")
+    //add the new list item to the UL(WITH THE ID adder)
+    const adder=document.querySelector("#adder");
+    //check to see if there are certain number of children (more than 16)
+    //add if there are,make the text white
+    if(adder.children.length > 10){
+        //add a class to the new list item to mak it white 
+        newListItem.classList.add("bright");
     }
-
     adder.appendChild(newListItem);
 }
 
-//add an event listener to the element that will remove the last list item in the list
+    // add an event listener to the element that wil remove the last list item in the list 
+    document.querySelector("#removeLast").addEventListener("click", removeItem);
+    //add another event listenr above the function
+    document.querySelector("#removeFirst").addEventListener("click", removeItem);
 
-document.querySelector("#removeFirst").addEventListener("click", removeLast);
-
-//add an event listener to the element that will remove the last list item in the list
-
-document.querySelector("#removeLast").addEventListener("click", removeItem);
-
-function removeItem (){
-    //get the adder element (the ul that holds the list items)
-    const adder = document.querySelector("#adder");
-
-    //check to see which buton was actually clicked...
-    //two equals makes a comparison (ask a question)
-    //declare the variable cRemove, which will be chaneged inside the if statement
-    let cRemove;
-    if(this.id == "removeLast"){
-
-        //set the child to remove variable to be the last child
-        cRemove = listItems.length - 1;
-    }else{
-        cRemove = 0;
-    }
-
-    //remove the child element based on which button was clicked
-    adder.removeChild(listItems[cRemove]);
-
-
-    console.log(cRemove);
-    //also get all the children in a variable aswell, the use for later...
-    const listItems = adder.children;
-
-    /*//check the length first to make sure there is a list item to remove
-    if(listItems.length > 0){
+    //type the function to remove the last list item in the list 
+    function removeItem(){
+        const adder=document.querySelector("#adder");
     
+        // check to see which button was clicked
+        //two equals makes a comparison
+        let cRemove;
+        //get th lsit ofchildren to count them
+        const listItems = adder.children;
+       if(this.id == "removeLast"){
 
-    // use the length of the list of children to remove the last child
-    //have to do length-1 because arrays always start at 0
 
-    const lastC = listItems.length-1;
+         //set the child to remove variable to the last child 
+         cRemove = listItems[listItems.length - 1];
+    
+        
+       }
+       else{
+        cRemove = listItems[0];
 
-    //tell the UL to remove the last child from list
-    adder.removeChild(listItems[lastC]);
-    }*/
+
+       }
+       adder.removeChild(cRemove);
+        /*//check the lenght first to make sure there is something to remove
+        if(listItems.length > 0){
+
+        //use the length of the list to remove the last item
+        //have to do lenght-1 because the first item is 0
+        const lastC = listItems.length - 1;
+        //tell the UL to remove the last child
+        adder.removeChild(listItems[lastC]);2*/
 }
