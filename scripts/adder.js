@@ -46,7 +46,4 @@ function addToEnd(){
         document.querySelector("#addEnd").style.color = "white";
     }
 
-
-
-
 }
